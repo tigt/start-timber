@@ -1,0 +1,17 @@
+<article class="comment comment-{{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
+  <h5 class="comment_author">{{comment.author.name}}</h5>
+
+  {{comment.comment_content|wpautop}}
+
+  {% if post.comments %}
+    <section class="comment_childComments">
+      <h4> Replies </h4>
+
+      {% for cmt in comment.children %}
+        {% include "comment.twig" with {comment:cmt} %}
+      {% endfor %}
+    </section>
+  {% endif %}
+
+  {% include "comment-form.twig" %}
+</article>

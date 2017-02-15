@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<article class="post post-type-{{post.post_type}}" id="post:{{post.ID}}">
+  <h1 class="post_title">{{post.title}}</h1>
+
+  {{post.content}}
+</article>
+{% endblock %}
